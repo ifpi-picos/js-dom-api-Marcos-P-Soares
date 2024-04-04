@@ -2,7 +2,6 @@
 const tarefaForm = document.getElementById('form-tarefa');
 const tituloInput = document.getElementById('titulo');
 const descricaoInput = document.getElementById('descricao');
-const categoriaInput = document.getElementById('categoria');
 const dataInput = document.getElementById('data');
 
 const listaTarefas = document.getElementById('lista-tarefas-body');
@@ -34,15 +33,14 @@ async function cadastrarTarefa(event) {
 function obterDadosDoFormulario() {
     const titulo = tituloInput.value.trim();
     const descricao = descricaoInput.value.trim();
-    const categoria = categoriaInput.value.trim();
     const data = dataInput.value;
 
-    if (!titulo || !descricao || !categoria || !data) {
+    if (!titulo || !descricao || !data) {
         alert('Por favor, preencha todos os campos.');
         return null;
     }
 
-    return { titulo, descricao, categoria, data, status: 'pendente' };
+    return { titulo, descricao, data, status: 'pendente' };
 }
 
 async function enviarTarefaParaAPI(tarefa) {
@@ -72,13 +70,13 @@ async function enviarTarefaParaAPI(tarefa) {
         salvarTarefasLocalStorage();
     } catch (error) {
         console.error('Ocorreu um erro:', error);
+        alert('Ocorreu um erro:', error);
     }
 }
 
 function limparCamposDoFormulario() {
     tituloInput.value = '';
     descricaoInput.value = '';
-    categoriaInput.value = '';
     dataInput.value = '';
 }
 
