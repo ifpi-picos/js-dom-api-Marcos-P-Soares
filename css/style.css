@@ -35,7 +35,7 @@ body {
 
 
 .formulario{
-    width: 40%;
+    width: 500px;
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -48,11 +48,6 @@ body {
 .formulario h2{
     display: flex;
     justify-content: center;
-}
-
-.tasks{
-    margin-top: 20px;
-    width: 60%;
 }
 
 
@@ -80,7 +75,7 @@ button:hover {
 }
 
 #lista-tarefas {
-    width: 100%;
+    max-width: 90%;
     border-collapse: collapse;
 }
 
@@ -94,4 +89,41 @@ button:hover {
     display: none;
 }
 
-@media only screen and (max-width: 600px){}
+@media only screen and (max-width: 650px){
+    .formulario {
+        width: 300px;
+        margin: 20px auto;
+        padding: 0 20px 20px;
+        border: 1px solid var(--cor-secundária-escura);
+        border-radius: 20px;
+    }
+
+    #lista-tarefas {
+        width: 400px; 
+        overflow: scroll;
+    }
+
+    #lista-tarefas th:nth-child(2),
+    #lista-tarefas td:nth-child(2) {
+        display: none;
+    }
+
+    #lista-tarefas th, #lista-tarefas td {
+        max-width: 100px; 
+        overflow:scroll;
+    }
+
+}
+
+@media only screen and (max-width: 500px){
+    #lista-tarefas th:nth-child(5),
+    #lista-tarefas td:nth-child(5) {
+        display: none;
+    }
+
+    .container h1{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+}
