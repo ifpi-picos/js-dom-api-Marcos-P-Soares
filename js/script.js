@@ -5,9 +5,11 @@ const descricaoInput = document.getElementById('descricao');
 const categoriaInput = document.getElementById('categoria');
 const dataInput = document.getElementById('data');
 
+// Elementos da lista de tarefas
 const listaTarefas = document.getElementById('lista-tarefas-body');
 const nullMessage = document.getElementById('null');
 
+// Array para armazenar as tarefas
 let lista = [];
 
 // Parâmetros da API do Todoist
