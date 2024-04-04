@@ -5,24 +5,20 @@ const descricaoInput = document.getElementById('descricao');
 const categoriaInput = document.getElementById('categoria');
 const dataInput = document.getElementById('data');
 
-// Elementos da lista de tarefas
 const listaTarefas = document.getElementById('lista-tarefas-body');
 const nullMessage = document.getElementById('null');
 
-// Array para armazenar as tarefas
 let lista = [];
 
 // Parâmetros da API do Todoist
-const apiKey = 'API KEY';
+const apiKey = '2b51febb62673f810e1cf55bc4b064871b27d541';
 const url = 'https://api.todoist.com/rest/v2/tasks';
 
-// Função principal para inicializar o aplicativo
 function inicializarAplicativo() {
     carregarTarefasLocalStorage();
     tarefaForm.addEventListener('submit', cadastrarTarefa);
 }
 
-// Função para cadastrar uma nova tarefa
 async function cadastrarTarefa(event) {
     event.preventDefault();
 
@@ -35,7 +31,6 @@ async function cadastrarTarefa(event) {
     atualizarListaTarefas();
 }
 
-// Função para obter os dados do formulário e criar um objeto de tarefa
 function obterDadosDoFormulario() {
     const titulo = tituloInput.value.trim();
     const descricao = descricaoInput.value.trim();
@@ -50,7 +45,6 @@ function obterDadosDoFormulario() {
     return { titulo, descricao, categoria, data, status: 'pendente' };
 }
 
-// Função para enviar uma tarefa para a API do Todoist
 async function enviarTarefaParaAPI(tarefa) {
     try {
         const response = await fetch(url, {
@@ -81,7 +75,6 @@ async function enviarTarefaParaAPI(tarefa) {
     }
 }
 
-// Função para limpar os campos do formulário após o cadastro da tarefa
 function limparCamposDoFormulario() {
     tituloInput.value = '';
     descricaoInput.value = '';
@@ -89,14 +82,12 @@ function limparCamposDoFormulario() {
     dataInput.value = '';
 }
 
-// Função para atualizar a lista de tarefas na interface do usuário
 function atualizarListaTarefas() {
     listaTarefas.innerHTML = '';
     lista.forEach(adicionarTarefaNaLista);
     exibirMensagemDeListaVazia();
 }
 
-// Função para adicionar uma tarefa à lista na interface do usuário
 function adicionarTarefaNaLista(tarefa) {
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -119,7 +110,6 @@ function adicionarTarefaNaLista(tarefa) {
     listaTarefas.appendChild(row);
 }
 
-// Função para exibir uma mensagem quando a lista de tarefas estiver vazia
 function exibirMensagemDeListaVazia() {
     if (lista.length === 0) {
         nullMessage.style.display = 'block';
@@ -128,7 +118,6 @@ function exibirMensagemDeListaVazia() {
     }
 }
 
-// Função para concluir uma tarefa
 async function concluirTarefa(tarefa) {
     tarefa.status = 'concluída';
 
@@ -156,7 +145,6 @@ async function concluirTarefa(tarefa) {
     }
 }
 
-// Função para excluir uma tarefa
 async function excluirTarefa(tarefa) {
     lista = lista.filter((item) => item !== tarefa);
 
@@ -180,12 +168,10 @@ async function excluirTarefa(tarefa) {
     }
 }
 
-// Função para salvar as tarefas no Local Storage
 function salvarTarefasLocalStorage() {
     localStorage.setItem('lista', JSON.stringify(lista));
 }
 
-// Função para carregar as tarefas do Local Storage ao carregar a página
 function carregarTarefasLocalStorage() {
     const savedlista = localStorage.getItem('lista');
     if (savedlista) {
@@ -194,5 +180,4 @@ function carregarTarefasLocalStorage() {
     }
 }
 
-// Chamada para inicializar o aplicativo quando a página é carregada
 window.addEventListener('DOMContentLoaded', inicializarAplicativo);
