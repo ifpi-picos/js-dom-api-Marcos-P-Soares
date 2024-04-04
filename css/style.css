@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+input[type="text"], input[type="date"], select, button {
+    margin: 5px;
+    padding: 8px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#lista-tarefas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#lista-tarefas th, #lista-tarefas td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#null {
+    display: none;
+}

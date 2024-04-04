@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerenciador de lista de tarefas.">
+    <title>To do list</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciador de Tarefas</h1>
+        <form id="form-tarefa">
+            <input type="text" id="titulo" placeholder="Título da tarefa" required>
+            <input type="text" id="descricao" placeholder="Descrição da tarefa" required>
+            <input type="text" id="categoria" placeholder="Categoria da tarefa" required>
+            <input type="date" id="data" required>
+            <button type="submit">Adicionar Tarefa</button>
+        </form>
+        <select id="filter-by">
+            <option value="todos">Todos</option>
+            <option value="categoria1">Categoria 1</option>
+            <option value="categoria2">Categoria 2</option>
+        </select>
+        <table id="lista-tarefas">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Data</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="lista-tarefas-body">
+                <tr id="null">
+                    <td colspan="5">Nenhuma tarefa encontrada.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
