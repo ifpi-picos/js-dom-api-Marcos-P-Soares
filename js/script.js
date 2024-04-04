@@ -3,6 +3,7 @@ const tarefaForm = document.getElementById('form-tarefa');
 const tituloInput = document.getElementById('titulo');
 const descricaoInput = document.getElementById('descricao');
 const dataInput = document.getElementById('data');
+const categoriaInput = document.getElementById('categoria'); // Adicionando a variável para a categoria
 
 // Elementos da lista de tarefas
 const listaTarefas = document.getElementById('lista-tarefas-body');
@@ -36,13 +37,14 @@ function obterDadosDoFormulario() {
     const titulo = tituloInput.value.trim();
     const descricao = descricaoInput.value.trim();
     const data = dataInput.value;
+    const categoria = categoriaInput.value.trim(); // Capturando o valor da categoria
 
-    if (!titulo || !descricao || !data) {
+    if (!titulo || !descricao || !data || !categoria) {
         alert('Por favor, preencha todos os campos.');
         return null;
     }
 
-    return { titulo, descricao, data, status: 'pendente' };
+    return { titulo, descricao, data, status: 'pendente', categoria };
 }
 
 async function enviarTarefaParaAPI(tarefa) {
@@ -80,6 +82,7 @@ function limparCamposDoFormulario() {
     tituloInput.value = '';
     descricaoInput.value = '';
     dataInput.value = '';
+    categoriaInput.value = ''; // Limpar o campo da categoria após o envio
 }
 
 function atualizarListaTarefas() {
@@ -95,6 +98,7 @@ function adicionarTarefaNaLista(tarefa) {
         <td>${tarefa.descricao}</td>
         <td>${tarefa.data}</td>
         <td>${tarefa.status}</td>
+        <td>${tarefa.categoria}</td>
         <td>
             <button class="complete-button">Concluir</button>
             <button class="delete-button">Excluir</button>

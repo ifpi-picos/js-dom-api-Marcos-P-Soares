@@ -6,7 +6,6 @@
     <meta name="description" content="Gerenciador de lista de tarefas.">
     <title>To do list</title>
     <link rel="stylesheet" href="css/style.css">
-    
 </head>
 <body>
     <div class="container">
@@ -15,15 +14,20 @@
             <h2>Adicionar Tarefa</h2>
             <input type="text" id="titulo" placeholder="Título da tarefa" required>
             <input type="text" id="descricao" placeholder="Descrição da tarefa" required>
-            <input type="text" id="categoria" placeholder="Categoria da tarefa" required>
+            <select id="categoria" required>
+                <option value="">Selecione a Categoria</option>
+                <option value="Trabalho/Profissional">Trabalho/Profissional</option>
+                <option value="Estudos/Educação">Estudos/Educação</option>
+                <option value="Casa/Doméstico">Casa/Doméstico</option>
+                <option value="Saúde/Bem-estar">Saúde/Bem-estar</option>
+                <option value="Finanças">Finanças</option>
+                <option value="Social/Relacionamentos">Social/Relacionamentos</option>
+                <option value="Projetos Pessoais">Projetos Pessoais</option>
+                <option value="Entretenimento/Lazer">Entretenimento/Lazer</option>
+            </select>
             <input type="date" id="data" required>
             <button type="submit">Adicionar Tarefa</button>
         </form>
-        <select id="filter-by">
-            <option value="todos">Todos</option>
-            <option value="categoria1">Categoria 1</option>
-            <option value="categoria2">Categoria 2</option>
-        </select>
         <table id="lista-tarefas">
             <thead>
                 <tr>
@@ -31,12 +35,13 @@
                     <th>Descrição</th>
                     <th>Data</th>
                     <th>Status</th>
+                    <th>Categoria</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody id="lista-tarefas-body">
                 <tr id="null">
-                    <td colspan="5">Nenhuma tarefa encontrada.</td>
+                    <td colspan="6">Nenhuma tarefa encontrada.</td>
                 </tr>
             </tbody>
         </table>
