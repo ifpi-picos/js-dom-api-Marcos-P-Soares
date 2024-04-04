@@ -11,34 +11,33 @@
 <body>
     <div class="container">
         <h1>Gerenciador de Tarefas</h1>
-        <form id="form-tarefa">
-            <input type="text" id="titulo" placeholder="Título da tarefa" required>
-            <input type="text" id="descricao" placeholder="Descrição da tarefa" required>
-            <input type="text" id="categoria" placeholder="Categoria da tarefa" required>
-            <input type="date" id="data" required>
-            <button type="submit">Adicionar Tarefa</button>
-        </form>
-        <select id="filter-by">
-            <option value="todos">Todos</option>
-            <option value="categoria1">Categoria 1</option>
-            <option value="categoria2">Categoria 2</option>
-        </select>
-        <table id="lista-tarefas">
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Descrição</th>
-                    <th>Data</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="lista-tarefas-body">
-                <tr id="null">
-                    <td colspan="5">Nenhuma tarefa encontrada.</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="content">
+            <form id="form-tarefa" class="formulario">
+                <h2>Cadastrar Tarefa</h2>
+                <input type="text" id="titulo" placeholder="Título da tarefa" required>
+                <input type="text" id="descricao" placeholder="Descrição da tarefa" required>
+                <input type="date" id="data" required>
+                <button type="submit">Adicionar Tarefa</button>
+            </form>
+            <div class="tasks">
+            <table id="lista-tarefas">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-tarefas-body">
+                    <tr id="null">
+                        <td colspan="5">Nenhuma tarefa encontrada.</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>
